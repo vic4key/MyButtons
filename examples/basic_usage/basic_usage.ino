@@ -9,7 +9,7 @@
  *   GPIO ◄─[button]─► GND, no external resistor needed (INPUT_PULLUP)
  */
 
-#include "my_buttons.h"
+#include <my_buttons.h>
 
 enum ButtonId {
     BTN_FAN   = 10,

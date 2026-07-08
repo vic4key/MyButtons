@@ -20,7 +20,7 @@ A simple Arduino/ESP32 button library for handling a list of buttons - configure
 ## 🚀 Quick Start
 
 ```cpp
-#include "my_buttons.h"
+#include <my_buttons.h>
 
 enum ButtonId {
     BTN_FAN   = 10,
