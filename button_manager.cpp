@@ -1,4 +1,5 @@
 #include "button_manager.h"
+#include <Arduino.h>
 
 // ---- Constructors ----
 

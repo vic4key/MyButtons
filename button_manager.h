@@ -2,7 +2,6 @@
 
 #include <stdint.h>
 #include <functional>
-#include <Arduino.h>
 
 #include "i_buttons.h"
 #include "gpio_buttons.h"
@@ -22,7 +21,7 @@ public:
      *   - HIGH: button connects to VCC when pressed → module has VCC pin → pinMode INPUT
      *   - LOW:  button connects to GND when pressed → module has GND only → pinMode INPUT_PULLUP
      */
-    ButtonManager(const uint8_t pins[], uint8_t pin_count, uint8_t press_level = LOW);
+    ButtonManager(const uint8_t pins[], uint8_t pin_count, uint8_t press_level);
 
     /**
      * @brief Construct with a custom IButtons source (e.g. mock, expander, etc.).

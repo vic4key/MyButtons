@@ -2,7 +2,6 @@
 
 #include "i_buttons.h"
 #include <stdint.h>
-#include <Arduino.h>
 
 class GPIOButtons : public IButtons {
 public:
@@ -14,7 +13,7 @@ public:
      *   - HIGH: button connects to VCC when pressed → module has VCC pin → pinMode INPUT
      *   - LOW:  button connects to GND when pressed → module has GND only → pinMode INPUT_PULLUP
      */
-    GPIOButtons(const uint8_t pins[], uint8_t pin_count, uint8_t press_level = HIGH);
+    GPIOButtons(const uint8_t pins[], uint8_t pin_count, uint8_t press_level);
 
     /**
      * @brief Read all GPIO pins and return a bitmask.

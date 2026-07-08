@@ -9,7 +9,7 @@ enum ButtonId {
 };
 
 uint8_t pins[] = {BTN_K1, BTN_K2, BTN_K3, BTN_K4};
-ButtonManager bm(pins, lengthof(pins));
+ButtonManager bm(pins, lengthof(pins), LOW);
 
 void on_press(uint8_t id) {
     Serial.printf("Pressed: %d\n", id);
