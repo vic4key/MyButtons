@@ -1,0 +1,21 @@
+#########################################################
+# MyButtons — Arduino IDE Syntax Highlighting
+#########################################################
+
+# Classes (KEYWORD1 = orange)
+IButtons	KEYWORD1
+GPIOButtons	KEYWORD1
+ButtonManager	KEYWORD1
+
+# Methods (KEYWORD2 = brown)
+scan	KEYWORD2
+update	KEYWORD2
+has_pressed	KEYWORD2
+read_pressed	KEYWORD2
+is_pressed	KEYWORD2
+any_pressed	KEYWORD2
+set_on_pressed_callback	KEYWORD2
+
+# Constants (LITERAL1 = blue)
+LOW	LITERAL1
+HIGH	LITERAL1
