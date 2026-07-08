@@ -2,60 +2,38 @@
  * basic_usage.ino
  * Example sketch demonstrating MyButtons library.
  *
- * Wiring: each button connects the GPIO pin to VCC (3.3V / 5V) when pressed.
- *         Use external pull-down resistors (e.g. 10kΩ) from each pin to GND.
+ * Wiring (active-high, press_level = HIGH):
+ *   GPIO ◄─[button]─► VCC, with external 10kΩ pull-down to GND
+ *
+ * Wiring (active-low, press_level = LOW):
+ *   GPIO ◄─[button]─► GND, no external resistor needed (INPUT_PULLUP)
  */
 
 #include "my_buttons.h"
 
-// -------------------------------------------------------------------
-// Define button ids using GPIO pin numbers (enum makes code readable)
-// -------------------------------------------------------------------
 enum ButtonId {
-    BTN_A = 4,
-    BTN_B = 16,
-    BTN_C = 17,
-    BTN_D = 18
+    BTN_FAN   = 10,
+    BTN_LIGHT = 11,
+    BTN_RESET = 12,
+    BTN_POWER = 13,
 };
 
-uint8_t pins[] = {BTN_A, BTN_B, BTN_C, BTN_D};
-
-// Create the manager with direct GPIO – simplest approach
-ButtonManager bm(pins, 4);
-
-// -------------------------------------------------------------------
-// Callback: called automatically on each press event
-// -------------------------------------------------------------------
-void on_press(uint8_t id) {
-    if (id == BTN_A) {
-        // This runs ONCE per press of BTN_A
-    }
-}
+const uint8_t pins[] = {BTN_FAN, BTN_LIGHT, BTN_RESET, BTN_POWER};
+ButtonManager bm(pins, 4, LOW); // The 3rd arg `press_level`: HIGH (active-high) or LOW (active-low).
 
 void setup() {
     Serial.begin(115200);
-
-    // Register the callback (optional)
-    bm.set_on_pressed_callback(on_press);
 }
 
 void loop() {
-    // Must be called every loop iteration
-    bm.update();
+    bm.update(); // Must call first, every loop iteration
 
-    // --------------- Polling API (Serial-like) ---------------
-    if (bm.has_pressed()) {
+    if (bm.has_pressed()) {          // Any button pressed?
         uint8_t id = bm.read_pressed();
-        Serial.printf("Button %d was just pressed\n", id);
+        Serial.printf("Button %d pressed", id);
     }
 
-    // --------------- Level-based API ---------------
-    if (bm.is_pressed(BTN_B)) {
-        // Runs continuously while BTN_B is held down
-        Serial.println("Holding BTN_B...");
-    }
-
-    if (bm.any_pressed()) {
-        // At least one button is currently held
+    if (bm.is_pressed(BTN_LIGHT)) {  // Is BTN_LIGHT currently pressed?
+        // Continuous action while holding
     }
 }
