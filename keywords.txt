@@ -17,5 +17,5 @@ any_pressed	KEYWORD2
 set_on_pressed_callback	KEYWORD2
 
 # Constants (LITERAL1 = blue)
-LOW	LITERAL1
+LOW	    LITERAL1
 HIGH	LITERAL1

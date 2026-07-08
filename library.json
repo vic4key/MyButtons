@@ -1,8 +1,8 @@
 {
   "name": "MyButtons",
   "version": "1.0.0",
-  "description": "A simple, debounced button management library for Arduino/ESP32 with callback & polling APIs",
-  "keywords": ["button", "buttons", "debounce", "gpio", "input", "polling", "callback"],
+  "description": "A simple Arduino/ESP32 button library for handling a list of buttons - configure once, trigger a debounced pressed event via callback, or check pressed states anytime.",
+  "keywords": ["button", "buttons", "debounce", "gpio", "input", "polling", "callback", "bitmask"],
   "repository": {
     "type": "git",
     "url": "https://github.com/vic4key/MyButtons.git"
