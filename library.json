@@ -1,6 +1,6 @@
 {
   "name": "MyButtons",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple Arduino/ESP32 button library for handling a list of buttons - configure once, trigger a debounced pressed event via callback, or check pressed states anytime.",
   "keywords": ["button", "buttons", "debounce", "gpio", "input", "polling", "callback", "bitmask"],
   "repository": {
